@@ -15,6 +15,7 @@ namespace MyCouse
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(); //se non viene aggiunto il middleware di routing non funziona
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,14 +32,15 @@ namespace MyCouse
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-                //http://www.miosito.it/products?id=1
-                /*await context.Response.WriteAsync(context.Request.Host.ToString()); //www.miosito.it
-                await context.Response.WriteAsync(context.Request.Path.ToString()); //products
-                await context.Response.WriteAsync(context.Request.Query["id"].ToString()); //1*/
+            app.UseStaticFiles();
 
+            //app.UseMvcWithDefaultRoute();
+            //oppure
+            app.UseMvc(routeBuilder =>
+            {
+                //courses/detail/5
+                //si specificano i default dell'url se dovessero mancare dei pezzi
+                routeBuilder.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
