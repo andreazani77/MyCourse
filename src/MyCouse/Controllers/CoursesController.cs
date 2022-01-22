@@ -18,5 +18,11 @@ namespace MyCouse.Controllers
             return Content($"Sono detail, ho ricevuto l'id {id}");
         }
 
+        public IActionResult Search(string title)
+        {
+            return Content($"Hai cercato {title}");
+        }
+
+
     }
 }
