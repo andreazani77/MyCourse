@@ -10,12 +10,13 @@ namespace MyCouse.Controllers
     {
         public IActionResult Index()
         {
-            return Content("Sono index");
+            //cercherà una views contenuta nella cartella views\courses\index
+            return View();
         }
 
         public IActionResult Detail(string id)
         {
-            return Content($"Sono detail, ho ricevuto l'id {id}");
+            return View();
         }
 
         public IActionResult Search(string title)
