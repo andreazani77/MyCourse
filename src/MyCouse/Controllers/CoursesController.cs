@@ -10,6 +10,15 @@ namespace MyCouse.Controllers
 {
     public class CoursesController : Controller
     {
+        private readonly ICourseService courseService;
+
+        //Serve per fare accoppiamentio debole tramnite dependency injection
+        //nella startup si specifica con quale classe andrà implementata l'interfaccia ICourseService
+        public CoursesController(ICourseService courseService)
+        {
+            this.courseService = courseService;
+        }
+
         public IActionResult Index()
         {
             //cercherà una views contenuta nella cartella views\courses\index
