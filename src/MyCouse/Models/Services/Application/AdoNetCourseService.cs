@@ -2,6 +2,7 @@
 using MyCouse.Models.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,7 +23,9 @@ namespace MyCouse.Models.Services.Application
 
         public List<CourseViewModel> GetCourses()
         {
-            throw new NotImplementedException();
+            string query = "select * from courses";
+            DataSet dataset = db.Query(query);
+
         }
     }
 }

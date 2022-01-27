@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using MyCouse.Models.Services.Application;
+using MyCouse.Models.Services.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,9 @@ namespace MyCouse
 
             //Dependency injections, quando c'è una componente che dipende da ICourseService viene utilizzato CourseService
             services.AddTransient<ICourseService, AdoNetCourseService>();
+            
+            //Ad ogni istanza di IDatabaseAccessor verrà utilizzata SqliteDatabaseAccessor
+            services.AddTransient<IDatabaseAccessor, SqliteDatabaseAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
