@@ -20,7 +20,7 @@ namespace MyCouse
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2); //se non viene aggiunto il middleware di routing non funziona
 
             //Dependency injections, quando c'è una componente che dipende da ICourseService viene utilizzato CourseService
-            services.AddTransient<ICourseService, CourseService>();
+            services.AddTransient<ICourseService, AdoNetCourseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
