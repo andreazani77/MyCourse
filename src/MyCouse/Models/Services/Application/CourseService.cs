@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyCouse.Models.Services.Application
 {
-    public class CourseService : ICourseService
+    public class CourseService
     {
         public List<CourseViewModel> GetCourses()
         {
